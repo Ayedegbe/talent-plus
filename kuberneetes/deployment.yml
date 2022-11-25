@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: python-webapp
+  labels:
+    app: talentplus
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: talentplus
+  template:
+    metadata:
+      labels:
+        app: talentplus
+    spec:
+      containers:
+      - name: talentplus
+        image: talentplus:2.0
+        ports:
+        - containerPort: 5000
